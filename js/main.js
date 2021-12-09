@@ -147,3 +147,62 @@ function maiscard(custo) {
 
 
 }
+
+let energyday = 20;
+let vitoria = 0;
+let derrota = 0;
+let empate = 0;
+let vitoriapercent = 0;
+let totalbatalhas = 0;
+let winrate = 0;
+const CURRENT_ENERGYDAY = document.getElementById('energyday');
+const CURRENT_VITORIA = document.getElementById('vitorias');
+const CURRENT_EMPATE = document.getElementById('empates');
+const CURRENT_DERROTA = document.getElementById('derrotas');
+const CURRENT_WINRATE = document.getElementById('winrate');
+
+function win() {
+    if (energyday > 0) {
+  
+            CURRENT_ENERGYDAY.innerHTML =  "Energias: "+(energyday = energyday-1) + "/20";
+        
+    }
+
+    totalbatalhas = totalbatalhas + 1;
+    vitoria = vitoria + 1;
+    winrate = (vitoria*100)/totalbatalhas;
+   
+    CURRENT_WINRATE.innerHTML = "Win rate: " + winrate.toFixed(2) + "%";
+    CURRENT_VITORIA.innerHTML = vitoria;
+
+}
+function lose() {
+    if (energyday > 0) {
+  
+        CURRENT_ENERGYDAY.innerHTML = "Energias: "+(energyday = energyday-1) + "/20";
+        
+        
+    }
+
+    derrota = derrota + 1;
+    totalbatalhas = totalbatalhas + 1;
+    winrate = (vitoria*100)/totalbatalhas;
+    CURRENT_DERROTA.innerHTML = derrota;
+    CURRENT_WINRATE.innerHTML = "Win rate: " + winrate.toFixed(2) + "%";
+
+}
+function draw() {
+    if (energyday > 0) {
+  
+        CURRENT_ENERGYDAY.innerHTML =  "Energias: "+(energyday = energyday-1) + "/20";
+        
+       
+
+    }
+    
+    empate = empate + 1;
+    totalbatalhas = totalbatalhas + 1;
+    winrate = ((vitoria+(empate*0.5)) * 100) / totalbatalhas;
+    CURRENT_EMPATE.innerHTML = empate;
+    CURRENT_WINRATE.innerHTML = "Win rate: " + winrate.toFixed(2) + "%";
+}
