@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head></head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS e Animate -->
+<link rel="stylesheet" href="node_modules/bootstrap/compiler/bootstrap.css">
+<link rel="stylesheet" href="node_modules/bootstrap/compiler/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<title>Contador Axie</title>
+</head>
+
+<body>
+
+
+
+    <!--Modal-->
+    <div class="modal fade "  id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Espere um pouco!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Este site foi criado com o objetivo de auxiliar o seu farm diário!
+                    o mesmo não se conecta com sua carteira nem tem qualquer interação dita com o jogo propriamente dito.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Entrar</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Final Modal-->
+   
+<!--card 1-->
+<div class="card text-white bg-dark text-center"  style="width: 500px; height: 800px; " id="card_principal">
+  <img src="img/top.png" style="width: 150px; height: 150px;" class="card-img-top mx-auto" alt="battle">
+  <h5 class="card-title" id="card_energias">Energias</h5>
+  <div class="card-header" style="height: 250px; ">
+    <img src="img/energia.svg" style="width: 150px; height: 150px;" class="card-img-top mx-auto" alt="energia">
+    <p class="card-text img-overlay" style="font-weight: 700;font-size: 50px; margin-top:-25%; text-shadow: 3px 3px brown;" id="currentEnergy" >0</p>
+   
+
+  <ul class="list-group list-group-horizontal " style="background-color : transparent; font-weight: 700;font-size: 20px; margin-top:15%; text-shadow: 2px 2px brown;">
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist1"></li>
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist2" ></li>
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist3" ></li>
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist4" ></li>
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist5"></li>
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist6" ></li>
+    <li class="list-group-item" style="background-color: #292929; color:#fff;"id="hist7" ></li>
+    
+  </ul>
+
+  </div>
+    <div class="card-body ">
+      
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center me-2 p-2" style="width: 100%; height: 80px; "  aria-label="grupo 1">
+        <button type="button" class="btn btn-warning" style="width: 10rem;" onclick="startmatch()"  aria-label="Novo partida">Iniciar Partida</button>
+        <button type="button" class="btn btn-warning" style="width: 10rem;" onclick="newturn()"  aria-label="Novo turno">Novo turno</button>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center me-2 p-2"  aria-label="grupo 1">
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="menoscard(1)"  aria-label="-1">-1</button>
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="menoscard(2)"  aria-label="-2">-2</button>
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="menoscard(3)"  aria-label="-3">-3</button>
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="menoscard(4)"  aria-label="-4">-4</button>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center me-2 p-2"  aria-label="grupo 2">
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="maiscard(1)"  aria-label="+1">+1</button>
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="maiscard(2)"  aria-label="+2">+2</button>
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="maiscard(3)"  aria-label="+3">+3</button>
+        <button type="button" class="btn btn-warning"  style="width: 4.5rem; height: 3.5rem;"  onclick="maiscard(4)"  aria-label="+4">+4</button>
+      </div>
+
+    </div>
+  
+</div>
+  
+  <!--finalcard 1-->
+  <div class="card text-white bg-dark text-center"  style="width: 500px; height: 800px; " id="card_Vitorias">
+    <img src="img/trofeu.png" style="width: 150px; height: 150px;" class="card-img-top mx-auto" alt="wins">
+    <h5 class="card-title" id="titulo_vitorias">Vitorias</h5>
+    <div class="card-header" style="height: 250px; ">
+    </div>
+    <div class="card-body "></div>
+    <div class="card-footer"></div>
+  </div>
+    <!-- Script -->
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/main.js"></script>
+    <script src="node_modules/popper.js/dist/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+
+</html>
