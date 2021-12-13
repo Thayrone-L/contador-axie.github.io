@@ -3,6 +3,8 @@ $(document).ready(function() {
   
 });
 
+
+
 let countEnergy = 0;
 let hist1 = null;
 let hist2 = null;
