@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#myModal').modal('show');
-  
+
 });
 
 
@@ -27,10 +27,10 @@ const HIST_7 = document.getElementById('hist7');
 
 
 function startmatch() {
-	
+
     CURRENT_ENERGY.innerHTML = (countEnergy = 3) + "/10";
-    
-   
+
+
     HIST_7.innerHTML = null;
     HIST_6.innerHTML = null;
     HIST_5.innerHTML = null;
@@ -38,7 +38,7 @@ function startmatch() {
     HIST_3.innerHTML = null;
     HIST_2.innerHTML = null;
     HIST_1.innerHTML = null;
-    
+
     hist1 = null;
     hist2 = null;
     hist3 = null;
@@ -46,7 +46,7 @@ function startmatch() {
     hist5 = null;
     hist6 = null;
     hist7 = null;
-    
+
 }
 
 function newturn() {
@@ -55,13 +55,13 @@ function newturn() {
     } else {
         CURRENT_ENERGY.innerHTML = (countEnergy = 10) + "/10";
     }
-    
+
     HIST_7.innerHTML = hist7 = hist6;
     HIST_6.innerHTML = hist6 = hist5;
-    HIST_5.innerHTML = hist5 =hist4;
+    HIST_5.innerHTML = hist5 = hist4;
     HIST_4.innerHTML = hist4 = hist3;
     HIST_3.innerHTML = hist3 = hist2;
-    HIST_2.innerHTML = hist2 =hist1;
+    HIST_2.innerHTML = hist2 = hist1;
     HIST_1.innerHTML = hist1 = " +" + 2;
 
 }
@@ -71,81 +71,75 @@ function newturn() {
 
 function menoscard(custo) {
     if (countEnergy > 0) {
-     if (custo == 1) {
+        if (custo == 1) {
 
-        CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 1) + "/10";
-        
-        
+            CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 1) + "/10";
+
+
+        } else if (custo == 2) {
+            CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 2) + "/10";
+
+        } else if (custo == 3) {
+            CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 3) + "/10";
+
+        } else if (custo == 4) {
+            CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 4) + "/10";
+
+        }
+
     }
-    else if (custo == 2) {
-        CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 2) + "/10";
-       
-    }
-    else if (custo == 3) {
-        CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 3) + "/10";
-       
-    }
-    else if (custo == 4) {
-        CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy - 4) + "/10";
-        
-    }
-   
-    }
-    
+
     if (countEnergy < 0) {
-     
-        CURRENT_ENERGY.innerHTML = (countEnergy = 0 ) + "/10";
+
+        CURRENT_ENERGY.innerHTML = (countEnergy = 0) + "/10";
 
     }
 
-    
+
     HIST_7.innerHTML = hist7 = hist6;
     HIST_6.innerHTML = hist6 = hist5;
-    HIST_5.innerHTML = hist5 =hist4;
+    HIST_5.innerHTML = hist5 = hist4;
     HIST_4.innerHTML = hist4 = hist3;
     HIST_3.innerHTML = hist3 = hist2;
-    HIST_2.innerHTML = hist2 =hist1;
+    HIST_2.innerHTML = hist2 = hist1;
     HIST_1.innerHTML = hist1 = " -" + custo;
-    
+
 }
 
 function maiscard(custo) {
     if (countEnergy < 10) {
-   if (custo == 1) {
+        if (custo == 1) {
 
             CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy + 1) + "/10";
-        
-        }
-        else if (custo == 2) {
+
+        } else if (custo == 2) {
             CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy + 2) + "/10";
-            
-        }
-        else if (custo == 3) {
+
+        } else if (custo == 3) {
             CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy + 3) + "/10";
-            
-        }
-        else if (custo == 4) {
+
+        } else if (custo == 4) {
             CURRENT_ENERGY.innerHTML = (countEnergy = countEnergy + 4) + "/10";
-            
+
         }
-        
+
     }
 
     if (countEnergy > 10) {
-     
+
         CURRENT_ENERGY.innerHTML = (countEnergy = 10) + "/10";
 
     }
-    
+
     HIST_7.innerHTML = hist7 = hist6;
     HIST_6.innerHTML = hist6 = hist5;
-    HIST_5.innerHTML = hist5 =hist4;
+    HIST_5.innerHTML = hist5 = hist4;
     HIST_4.innerHTML = hist4 = hist3;
     HIST_3.innerHTML = hist3 = hist2;
-    HIST_2.innerHTML = hist2 =hist1;
+    HIST_2.innerHTML = hist2 = hist1;
     HIST_1.innerHTML = hist1 = " +" + custo;
-    
-    
+
+
 
 
 }
@@ -165,46 +159,58 @@ const CURRENT_WINRATE = document.getElementById('winrate');
 
 function win() {
     if (energyday > 0) {
-  
-            CURRENT_ENERGYDAY.innerHTML =  "Energias: "+(energyday = energyday-1) + "/20";
-        
+
+        CURRENT_ENERGYDAY.innerHTML = "Energias: " + (energyday = energyday - 1) + "/20";
+
     }
 
     totalbatalhas = totalbatalhas + 1;
     vitoria = vitoria + 1;
-    winrate = (vitoria*100)/totalbatalhas;
-   
+    winrate = (vitoria * 100) / totalbatalhas;
+
     CURRENT_WINRATE.innerHTML = "Win rate: " + winrate.toFixed(2) + "%";
     CURRENT_VITORIA.innerHTML = vitoria;
 
 }
+
 function lose() {
     if (energyday > 0) {
-  
-        CURRENT_ENERGYDAY.innerHTML = "Energias: "+(energyday = energyday-1) + "/20";
-        
-        
+
+        CURRENT_ENERGYDAY.innerHTML = "Energias: " + (energyday = energyday - 1) + "/20";
+
+
     }
 
     derrota = derrota + 1;
     totalbatalhas = totalbatalhas + 1;
-    winrate = (vitoria*100)/totalbatalhas;
+    winrate = (vitoria * 100) / totalbatalhas;
     CURRENT_DERROTA.innerHTML = derrota;
     CURRENT_WINRATE.innerHTML = "Win rate: " + winrate.toFixed(2) + "%";
 
 }
+
 function draw() {
     if (energyday > 0) {
-  
-        CURRENT_ENERGYDAY.innerHTML =  "Energias: "+(energyday = energyday-1) + "/20";
-        
-       
+
+        CURRENT_ENERGYDAY.innerHTML = "Energias: " + (energyday = energyday - 1) + "/20";
+
+
 
     }
-    
+
     empate = empate + 1;
     totalbatalhas = totalbatalhas + 1;
-    winrate = ((vitoria+(empate*0.5)) * 100) / totalbatalhas;
+    winrate = ((vitoria + (empate * 0.5)) * 100) / totalbatalhas;
     CURRENT_EMPATE.innerHTML = empate;
     CURRENT_WINRATE.innerHTML = "Win rate: " + winrate.toFixed(2) + "%";
+}
+
+function showcontatos() {
+    if (document.querySelector('#contatos').classList.contains('show')) {
+        document.querySelector('#contatos').classList.remove('show');
+    } else {
+        document.querySelector('#contatos').classList.add('show')
+    }
+
+
 }
